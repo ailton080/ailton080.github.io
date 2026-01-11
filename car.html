@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller Mecánico Automotriz</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0e0e0e;
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80')
+    center / cover fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeZoom 1.4s ease;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.4rem;
+}
+
+/* ANIMACIONES */
+@keyframes fadeZoom {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* SECCIONES */
+section {
+    padding: 90px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+/* SERVICIOS */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.service {
+    background: #141414;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.service.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.service img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.service:hover img {
+    transform: scale(1.15);
+}
+
+.service-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.service h3 {
+    color: #ff2e2e;
+    margin-bottom: 10px;
+}
+
+/* CONTADORES */
+.counters {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.counter {
+    font-size: 3.5rem;
+    color: #ff2e2e;
+}
+
+/* INFO */
+.info {
+    background: #141414;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    padding: 18px 26px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    animation: pulse 1.4s infinite;
+    text-decoration: none;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 2.3rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>🔧 Taller Mecánico Automotriz</h1>
+        <p>Potencia, confianza y experiencia real</p>
+    </div>
+</div>
+
+<!-- SERVICIOS -->
+<section>
+<h2>Servicios</h2>
+<div class="services">
+
+    <div class="service reveal">
+        <img src="https://images.unsplash.com/photo-1583267746897-2cf415887172?auto=format&fit=crop&w=800&q=80">
+        <div class="service-content">
+            <h3>Afinación</h3>
+            <p>Mejora rendimiento y ahorro.</p>
+        </div>
+    </div>
+
+    <div class="service reveal">
+        <img src="https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?auto=format&fit=crop&w=800&q=80">
+        <div class="service-content">
+            <h3>Frenos</h3>
+            <p>Seguridad total al conducir.</p>
+        </div>
+    </div>
+
+    <div class="service reveal">
+        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c3?auto=format&fit=crop&w=800&q=80">
+        <div class="service-content">
+            <h3>Suspensión</h3>
+            <p>Estabilidad y confort.</p>
+        </div>
+    </div>
+
+    <div class="service reveal">
+        <img src="https://images.unsplash.com/photo-1597007066703-67ef799a1c51?auto=format&fit=crop&w=800&q=80">
+        <div class="service-content">
+            <h3>Cambio de Aceite</h3>
+            <p>Mantenimiento rápido.</p>
+        </div>
+    </div>
+
+    <div class="service reveal">
+        <img src="https://images.unsplash.com/photo-1581579185169-9f8f42ed2a7c?auto=format&fit=crop&w=800&q=80">
+        <div class="service-content">
+            <h3>Diagnóstico</h3>
+            <p>Escáner profesional.</p>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- CONTADORES -->
+<section>
+<h2>Números que hablan</h2>
+<div class="counters">
+    <div>
+        <div class="counter" data-target="15">0</div>
+        <p>Años de experiencia</p>
+    </div>
+    <div>
+        <div class="counter" data-target="3500">0</div>
+        <p>Autos atendidos</p>
+    </div>
+    <div>
+        <div class="counter" data-target="100">0</div>
+        <p>% Clientes felices</p>
+    </div>
+</div>
+</section>
+
+<!-- INFO -->
+<section>
+<h2>Contacto</h2>
+<div class="info">
+    <p>📍 Av. Principal #123</p>
+    <p>🕘 Lunes a Sábado 9:00 – 18:00</p>
+    <p>📞 55 1234 5678</p>
+</div>
+</section>
+
+<a class="whatsapp"
+href="https://wa.me/5215512345678?text=Hola,%20quiero%20una%20cotización"
+target="_blank">💬 WhatsApp</a>
+
+<script>
+// SCROLL REVEAL
+const cards = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if (top < window.innerHeight - 120) {
+            card.classList.add('active');
+        }
+    });
+});
+
+// CONTADORES
+document.querySelectorAll('.counter').forEach(counter => {
+    const update = () => {
+        const target = +counter.dataset.target;
+        const current = +counter.innerText;
+        const inc = target / 80;
+        if (current < target) {
+            counter.innerText = Math.ceil(current + inc);
+            setTimeout(update, 30);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    update();
+});
+</script>
+
+</body>
+</html>
