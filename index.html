@@ -8,6 +8,11 @@
 <style>
 * { box-sizing: border-box; }
 
+/* Desplazamiento suave al hacer clic en los enlaces del menú */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -15,7 +20,77 @@ body {
     color: #fff;
 }
 
-/* HERO */
+/* ========================================================
+   NUEVA BARRA DE NAVEGACIÓN (NAVBAR) 
+   ======================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(14, 14, 14, 0.85); /* Fondo oscuro semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque moderno */
+    border-bottom: 1px solid rgba(255, 46, 46, 0.2); /* Sutil línea roja inferior */
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+.nav-logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo span {
+    color: #ff2e2e; /* Resaltado rojo en la marca */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff2e2e; /* Cambio a rojo al pasar el cursor */
+}
+
+/* Botón Destacado: Agendar Visita */
+.btn-appointment {
+    background: #ff2e2e;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 46, 46, 0.4);
+}
+
+.btn-appointment:hover {
+    background: #cc1f1f;
+    transform: translateY(-2px);
+}
+
+/* Adjustar el inicio del Hero debido a la barra fija */
 .hero {
     height: 100vh;
     background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80')
@@ -25,6 +100,7 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
+    padding-top: 80px; /* Evita que la barra tape el contenido inicial */
 }
 
 .hero::after {
@@ -57,7 +133,7 @@ body {
 
 /* SECCIONES */
 section {
-    padding: 90px 20px;
+    padding: 100px 20px 60px 20px; /* Margen superior amplio para el scroll */
     max-width: 1200px;
     margin: auto;
 }
@@ -144,6 +220,7 @@ h2 {
     font-weight: bold;
     animation: pulse 1.4s infinite;
     text-decoration: none;
+    z-index: 999;
 }
 
 @keyframes pulse {
@@ -153,7 +230,20 @@ h2 {
 }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .nav-menu {
+        gap: 15px;
+    }
+    .nav-link {
+        font-size: 0.9rem;
+    }
+    .btn-appointment {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
     .hero h1 { font-size: 2.3rem; }
 }
 </style>
@@ -161,7 +251,16 @@ h2 {
 
 <body>
 
-<!-- HERO -->
+<nav class="navbar">
+    <a href="#" class="nav-logo">🔧 Taller<span>Pro</span></a>
+    <ul class="nav-menu">
+        <li><a href="#" class="nav-link">Inicio</a></li>
+        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        <li><a href="https://wa.me/5215512345678?text=Hola,%20quiero%20agendar%20una%20visita%20al%20taller" target="_blank" class="btn-appointment">Agendar Visita</a></li>
+    </ul>
+</nav>
+
 <div class="hero">
     <div class="hero-content">
         <h1>🔧 Taller Mecánico Automotriz</h1>
@@ -169,8 +268,7 @@ h2 {
     </div>
 </div>
 
-<!-- SERVICIOS -->
-<section>
+<section id="servicios">
 <h2>Servicios</h2>
 <div class="services">
 
@@ -217,7 +315,6 @@ h2 {
 </div>
 </section>
 
-<!-- CONTADORES -->
 <section>
 <h2>Números que hablan</h2>
 <div class="counters">
@@ -236,8 +333,7 @@ h2 {
 </div>
 </section>
 
-<!-- INFO -->
-<section>
+<section id="contacto">
 <h2>Contacto</h2>
 <div class="info">
     <p>📍 Av. Principal #123</p>
