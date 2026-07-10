@@ -390,7 +390,7 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
 .form-button:active { transform: translateY(0); }
 
 /* ========================================================
-   PIE DE PÁGINA (FOOTER) Y REDES SOCIALES ORIGINALES
+   PIE DE PÁGINA (FOOTER) Y REDES SOCIALES TOTALMENTE CENTRADAS
    ======================================================== */
 .footer { background-color: #070b12; padding: 60px 6% 30px 6%; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 60px; }
@@ -405,20 +405,25 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     margin-top: 10px;
 }
 
-/* Estilo individual para cada burbuja social */
+/* Estilo individual corregido para centrado perfecto sin flex/grid complejos */
 .social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
+    display: block;
+    width: 44px;
+    height: 44px;
+    line-height: 42px; /* Alineación vertical milimétrica (resta el borde) */
+    text-align: center; /* Alineación horizontal milimétrica */
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--text-gray);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     text-decoration: none;
     transition: all 0.3s ease;
+}
+
+.social-icon i {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Colores Oficiales Originales al hacer Hover */
@@ -438,9 +443,9 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
 
 .social-icon.tiktok:hover {
     background-color: #000000;
-    border-color: #01F2FF; /* Color cian original de su logo */
+    border-color: #01F2FF; 
     color: #fff;
-    text-shadow: 1px 1px #FE2C55, -1px -1px #01F2FF; /* Micro-glitch característico de TikTok */
+    text-shadow: 1px 1px #FE2C55, -1px -1px #01F2FF; 
     box-shadow: 0 0 15px rgba(1, 242, 255, 0.4);
 }
 
@@ -548,7 +553,6 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
             <a href="#contacto" class="card-link">Ver detalles →</a>
         </div>
         
-        <!-- Tarjeta 3: Diagnóstico por Escáner (ENLACE CORREGIDO) -->
         <div class="service-card" onclick="window.location.href='#contacto'">
             <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=800&q=80" alt="Diagnóstico electrónico por escáner">
             <h3>Diagnóstico por Escáner</h3>
@@ -621,7 +625,7 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     </div>
 </section>
 
-<!-- FOOTER CON REDES SOCIALES ORIGINALES -->
+<!-- FOOTER CON REDES SOCIALES CORREGIDAS Y PERFECTAMENTE CENTRADAS -->
 <footer class="footer">
     <div class="footer-top">
         <div class="footer-logo">
@@ -632,7 +636,6 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
         <div class="footer-links">
             <h3 class="footer-title">Síguenos</h3>
             <div class="social-links">
-                <!-- Solo reemplaza el "#" con el enlace real a tus perfiles -->
                 <a href="#" class="social-icon facebook" target="_blank" aria-label="Facebook">
                     <i class="fa-brands fa-facebook-f"></i>
                 </a>
@@ -698,7 +701,7 @@ function enviarWhatsApp() {
         return;
     }
     
-    const telefono = "526641277430";
+    const telefono = "526645485559";
     const textoMensaje = `*NUEVA SOLICITUD DE COTIZACIÓN*%0A%0A` +
                          `*Nombre:* ${nombre}%0A` +
                          `*Correo:* ${email}%0A` +
