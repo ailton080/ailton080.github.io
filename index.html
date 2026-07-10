@@ -3,60 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoReparación </title>
+<title>AutoReparación | Ingeniería de Precisión Automotriz</title>
 
+<!-- Fuentes Premium de Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght=700;900&family=Plus+Jakarta+Sans:wght=400;500;700&display=swap" rel="stylesheet">
+
+<!-- Iconos Originales de Redes Sociales (Font Awesome) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-/* ========================================================
-   VARIABLES DE DISEÑO Y CONFIGURACIÓN GLOBAL
-   ======================================================== */
 :root {
-    --bg-dark: #0a0f18;       /* Fondo oscuro profundo de tus capturas */
-    --bg-card: #111827;       /* Fondo de las tarjetas de servicios */
-    --accent-red: #f24e4e;    /* El rojo coral de tus botones */
-    --accent-blue: #2563eb;   /* El azul eléctrico de los testimonios */
+    --bg-dark: #0a0f18;       
+    --bg-card: #111827;       
+    --accent-red: #f24e4e;    
+    --accent-blue: #2563eb;   
     --text-white: #ffffff;
     --text-gray: #9ca3af;
-    --font-heading: 'Orbitron', sans-serif; /* Tipografía para los títulos grandes */
+    --font-heading: 'Orbitron', sans-serif; 
     --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: var(--font-body);
-    overflow-x: hidden;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { background-color: var(--bg-dark); color: var(--text-white); font-family: var(--font-body); overflow-x: hidden; }
 
 /* ========================================================
-   BARRA DE NAVEGACIÓN (HEADER)
+   BARRA DE NAVEGACIÓN RECONFIGURADA Y RESPONSIVA
    ======================================================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(10, 15, 24, 0.85);
+    background: rgba(10, 15, 24, 0.9);
     backdrop-filter: blur(12px);
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 6%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .nav-logo {
@@ -64,16 +52,9 @@ body {
     font-size: 1.2rem;
     color: var(--text-white);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    letter-spacing: -0.5px;
 }
 
-.nav-logo span {
-    color: var(--text-gray);
-    font-weight: 400;
-}
+.nav-logo span { color: var(--text-gray); font-weight: 400; }
 
 .nav-menu {
     display: flex;
@@ -87,15 +68,36 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
-    transition: opacity 0.3s;
+    transition: color 0.3s;
 }
 
-.nav-link:hover {
-    opacity: 0.7;
+.nav-link:hover { color: var(--accent-red); }
+
+/* MENÚ HAMBURGUESA (Oculto en Escritorio) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
 }
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-white);
+    transition: all 0.3s ease;
+}
+
+/* Animación de la Hamburguesa a una "X" */
+.menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
 
 /* ========================================================
-   SECCIÓN 1: INICIO (HERO)
+   INICIO (HERO) CON ESLOGAN IMPACTANTE
    ======================================================== */
 .hero {
     min-height: 100vh;
@@ -116,11 +118,11 @@ body {
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
     font-weight: 900;
-    line-height: 1.05;
+    line-height: 1.1;
     text-transform: uppercase;
-    max-width: 800px;
+    max-width: 850px;
     letter-spacing: -1px;
 }
 
@@ -128,341 +130,377 @@ body {
     background-color: var(--accent-red);
     color: var(--text-white);
     text-decoration: none;
-    font-family: var(--font-body);
     font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 20px 35px;
     border-radius: 6px;
+    transition: all 0.3s ease;
+    max-width: 280px;
     text-align: center;
-    transition: transform 0.2s, background-color 0.2s;
-    max-width: 260px;
+    box-shadow: 0 10px 25px rgba(242, 78, 78, 0.2);
 }
 
 .btn-quote:hover {
     background-color: #df3e3e;
     transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(242, 78, 78, 0.4);
 }
 
 .hero-banner-img {
     width: 100%;
-    height: 450px;
+    height: 480px;
     object-fit: cover;
     margin-top: 60px;
 }
 
 /* ========================================================
-   SECCIÓN 2: EQUIPO CERTIFICADO (BLOQUE SPLIT)
+   NOSOTROS: HISTORIA Y VALOR (COCHE CLÁSICO)
    ======================================================== */
-.split-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 80vh;
-    align-items: center;
-}
-
-.split-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.split-content {
-    padding: 80px 12%;
-    background-color: #0d1524;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.split-content h2 {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    text-transform: uppercase;
-    margin-bottom: 25px;
-    line-height: 1.1;
-}
-
-.split-content p {
-    color: var(--text-gray);
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
+.split-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; align-items: center; }
+.split-image { width: 100%; height: 100%; object-fit: cover; }
+.split-content { padding: 80px 10%; background-color: #0d1524; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.split-content h2 { font-family: var(--font-heading); font-size: 3rem; text-transform: uppercase; margin-bottom: 25px; line-height: 1.1; }
+.split-content p { color: var(--text-gray); font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; }
 
 /* ========================================================
-   SECCIÓN 3: NUEVOS SERVICIOS (TARJETAS GRID)
+   SECCIÓN SERVICIOS: IMÁGENES PRECISAS Y EFECTO ZOOM
    ======================================================== */
-.services-section {
-    padding: 100px 6%;
-}
-
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    margin-bottom: 60px;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-}
+.services-section { padding: 100px 6%; }
+.section-title { font-family: var(--font-heading); font-size: 3.5rem; text-transform: uppercase; margin-bottom: 60px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
 .service-card {
     background-color: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-    overflow: hidden;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
+    border-radius: 6px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-red);
+    box-shadow: 0 15px 35px rgba(242, 78, 78, 0.1);
 }
 
 .service-card img {
     width: 100%;
-    height: 280px;
+    height: 240px;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 25px;
+    transition: transform 0.5s ease;
 }
+
+.service-card:hover img { transform: scale(1.03); }
 
 .service-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 15px;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
-.service-card p {
-    color: var(--text-gray);
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
+.service-card:hover h3 { color: var(--accent-red); }
+.service-card p { color: var(--text-gray); font-size: 1rem; line-height: 1.6; margin-bottom: 25px; }
 
 .service-card .card-link {
-    color: var(--accent-red);
+    color: var(--text-white);
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.9rem;
     text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: inline-block;
 }
 
+.service-card:hover .card-link { color: var(--accent-red); padding-left: 5px; }
+
 /* ========================================================
-   SECCIÓN 4: OPINIONES (FONDO AZUL VIVO)
+   SECCIÓN OPINIONES: CAROUSEL HORIZONTAL
    ======================================================== */
 .reviews-section {
-    background-color: var(--accent-blue);
+    background-color: #0d1524; 
     padding: 100px 6%;
     text-align: center;
+    position: relative;
 }
 
 .reviews-section h2 {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-transform: uppercase;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
 }
 
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 50px;
-    max-width: 1200px;
+.reviews-wrapper {
+    position: relative;
+    max-width: 1000px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
+
+.reviews-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 30px;
+    padding: 20px 10px;
+    width: 100%;
+    scrollbar-width: none; 
+}
+
+.reviews-slider::-webkit-scrollbar { display: none; }
 
 .review-item {
+    flex: 0 0 100%; 
+    scroll-snap-align: center;
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    min-height: 250px;
+    text-align: left;
+    transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-.review-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    line-height: 1;
-}
+.review-item:hover { border-color: var(--accent-red); transform: translateY(-3px); }
 
 .review-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-family: var(--font-body);
+    font-size: 1.15rem; 
+    line-height: 1.8; 
+    color: #e5e7eb; 
+    margin-bottom: 25px;
+    font-weight: 400;
 }
 
 .review-author {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
-    text-transform: uppercase;
-}
-
-/* ========================================================
-   SECCIÓN 5: CONTACTO CON FORMULARIO INTEGRADO
-   ======================================================== */
-.contact-section {
-    padding: 100px 6%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-}
-
-.contact-info h2 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.contact-info > p {
-    color: var(--text-gray);
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-}
-
-.info-group {
-    margin-bottom: 30px;
-}
-
-.info-group h3 {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.info-group p {
-    color: var(--text-gray);
-    font-size: 1.05rem;
-    line-height: 1.5;
-}
-
-/* Estilo del Formulario que faltaba en tus capturas */
-.contact-form {
-    background-color: var(--bg-card);
-    padding: 40px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--bg-dark);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-white);
-    border-radius: 4px;
-    font-family: var(--font-body);
-}
-
-.form-button {
-    width: 100%;
-    background-color: var(--accent-red);
-    color: white;
-    border: none;
-    padding: 15px;
-    text-transform: uppercase;
-    font-family: var(--font-body);
-    font-weight: 700;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* ========================================================
-   FOOTER (PIE DE PÁGINA)
-   ======================================================== */
-.footer {
-    background-color: #070b12;
-    padding: 60px 6% 30px 6%;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.footer-logo h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    text-transform: uppercase;
-    line-height: 1.1;
-}
-
-.footer-title {
-    color: var(--accent-red);
-    font-family: var(--font-heading);
     font-size: 0.95rem;
     text-transform: uppercase;
-    margin-bottom: 15px;
     letter-spacing: 1px;
-}
-
-.footer-links a {
-    color: var(--text-gray);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.footer-socials {
+    color: var(--accent-red);
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
 }
 
-.footer-socials a {
+.review-author::before { content: "—"; color: var(--text-gray); }
+
+.slider-btn {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-white);
-    background-color: rgba(255,255,255,0.05);
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background 0.3s;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    user-select: none;
+    z-index: 10;
 }
 
-.footer-socials a:hover {
+.slider-btn:hover {
     background-color: var(--accent-red);
+    border-color: var(--accent-red);
+    box-shadow: 0 0 15px rgba(242, 78, 78, 0.3);
 }
 
-.footer-bottom {
+/* ========================================================
+   SECCIÓN CONTACTO Y RECUADROS ANIMADOS SUTILES
+   ======================================================== */
+.contact-section { padding: 100px 6%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact-info h2 { font-family: var(--font-heading); font-size: 3.5rem; text-transform: uppercase; margin-bottom: 20px; }
+.contact-info p { color: var(--text-gray); margin-bottom: 40px; }
+.info-group { margin-bottom: 30px; }
+.info-group h3 { font-family: var(--font-heading); font-size: 1.6rem; text-transform: uppercase; margin-bottom: 10px; }
+.info-group p { color: var(--text-gray); }
+
+.contact-form { 
+    background-color: var(--bg-card); 
+    padding: 40px; 
+    border-radius: 6px; 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-group { margin-bottom: 20px; }
+
+/* Estilos y transiciones fluidas para inputs del formulario */
+.form-group input, .form-group textarea { 
+    width: 100%; 
+    padding: 15px; 
+    background-color: var(--bg-dark); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    color: var(--text-white); 
+    border-radius: 4px; 
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Animación cuando el usuario da clic en un recuadro */
+.form-group input:focus, .form-group textarea:focus { 
+    border-color: var(--accent-red); 
+    background-color: #0f172a; 
+    box-shadow: 0 0 12px rgba(242, 78, 78, 0.15); 
+    transform: translateX(4px); 
+}
+
+.form-button { 
+    width: 100%; 
+    background-color: var(--accent-red); 
+    color: white; 
+    border: none; 
+    padding: 15px; 
+    text-transform: uppercase; 
+    font-weight: 700; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #df3e3e;
+    box-shadow: 0 5px 20px rgba(242, 78, 78, 0.4);
+    transform: translateY(-2px);
+}
+
+.form-button:active { transform: translateY(0); }
+
+/* ========================================================
+   PIE DE PÁGINA (FOOTER) Y REDES SOCIALES ORIGINALES
+   ======================================================== */
+.footer { background-color: #070b12; padding: 60px 6% 30px 6%; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 60px; }
+.footer-logo h2 { font-family: var(--font-heading); font-size: 2rem; }
+.footer-title { color: var(--accent-red); font-family: var(--font-heading); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 15px; }
+.footer-links a { color: var(--text-gray); text-decoration: none; display: block; margin-bottom: 10px; }
+
+/* Contenedor de iconos sociales */
+.social-links {
     display: flex;
-    justify-content: space-between;
-    color: var(--text-gray);
-    font-size: 0.9rem;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-/* RESPONSIVE DESIGN */
+/* Estilo individual para cada burbuja social */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Colores Oficiales Originales al hacer Hover */
+.social-icon.facebook:hover {
+    background-color: #1877F2;
+    border-color: #1877F2;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
+}
+
+.social-icon.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(214, 36, 159, 0.4);
+}
+
+.social-icon.tiktok:hover {
+    background-color: #000000;
+    border-color: #01F2FF; /* Color cian original de su logo */
+    color: #fff;
+    text-shadow: 1px 1px #FE2C55, -1px -1px #01F2FF; /* Micro-glitch característico de TikTok */
+    box-shadow: 0 0 15px rgba(1, 242, 255, 0.4);
+}
+
+.social-icon.youtube:hover {
+    background-color: #FF0000;
+    border-color: #FF0000;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.footer-bottom { display: flex; justify-content: space-between; color: var(--text-gray); font-size: 0.9rem; flex-wrap: wrap; gap: 20px; }
+
+/* ========================================================
+   DISEÑO RESPONSIVO (PANTALLAS MEDIANAS Y MÓVILES)
+   ======================================================== */
 @media (max-width: 968px) {
+    .menu-toggle { display: flex; } 
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 75%;
+        height: 100vh;
+        background-color: #0d1524;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        transition: right 0.4s ease;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+    
+    .nav-menu.active { right: 0; } 
+    .nav-link { font-size: 1.3rem; } 
+    
     .split-section, .contact-section { grid-template-columns: 1fr; }
     .split-content { padding: 60px 6%; }
-    .hero-main { flex-direction: column; align-items: flex-start; }
+    .hero-main { flex-direction: column; align-items: flex-start; gap: 30px; }
     .btn-quote { max-width: 100%; width: 100%; }
+    .hero-banner-img { height: 320px; }
+}
+
+@media (min-width: 768px) {
+    .review-item { flex: 0 0 calc(50% - 15px); } 
 }
 </style>
 </head>
 <body>
 
+<!-- BARRA DE NAVEGACIÓN -->
 <nav class="navbar">
     <a href="#inicio" class="nav-logo">🔧 Auto<span>Reparación</span></a>
-    <ul class="nav-menu">
+    
+    <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <ul class="nav-menu" id="nav-list">
         <li><a href="#inicio" class="nav-link">Inicio</a></li>
         <li><a href="#servicios" class="nav-link">Servicios</a></li>
         <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
@@ -470,72 +508,94 @@ body {
     </ul>
 </nav>
 
+<!-- INICIO (HERO) -->
 <header id="inicio" class="hero">
     <div class="hero-main">
-        <h1 class="hero-title">Servicios Mecánicos Profesionales</h1>
+        <h1 class="hero-title">Ingeniería de Precisión para tu Tranquilidad</h1>
         <a href="#contacto" class="btn-quote">Solicitar Cotización</a>
     </div>
-    <img src="https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1800&q=80" alt="Laboratorio Diagnóstico Mecánico" class="hero-banner-img">
+    <img src="https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1800&q=80" alt="Diagnóstico Automotriz Avanzado" class="hero-banner-img">
 </header>
 
+<!-- NOSOTROS (HISTORIA Y VALOR) -->
 <section id="nosotros" class="split-section">
-    <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1000&q=80" alt="Técnico usando Escáner" class="split-image">
+    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80" alt="Restauración de Coche Clásico" class="split-image">
     <div class="split-content">
-        <h2>Equipo Certificado</h2>
-        <p>En AutoReparación, nuestra trayectoria se define por la excelencia técnica y el compromiso con la seguridad de cada vehículo. Nuestro equipo de especialistas utiliza tecnología avanzada para garantizar diagnósticos precisos y soluciones de mantenimiento de alta calidad, asegurando que su automóvil reciba el cuidado profesional que merece.</p>
+        <span style="color: var(--accent-red); font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block;">Nuestra Historia</span>
+        <h2>Un Legado de Confianza</h2>
+        <p>Todo comenzó en un pequeño garaje con el suelo manchado de aceite y las herramientas heredadas de un abuelo. Ahí, un padre le enseñó a su hijo que el motor de un automóvil no es solo un conjunto de piezas metálicas; es el guardián de los viajes familiares, de los regresos a casa y de las promesas en la carretera.</p>
+        <p style="font-style: italic; border-left: 2px solid var(--accent-red); padding-left: 15px; color: var(--text-white); margin: 15px 0;">"Hijo, cualquiera puede cambiar una pieza rota, pero nosotros devolvemos la tranquilidad. Quien nos deja sus llaves, nos confía la seguridad de su familia."</p>
+        <p>Hoy, aquel niño es el ingeniero que lidera nuestro taller moderno. Combinamos esa misma filosofía de honestidad y amor por los automóviles que aprendimos de niños, con la tecnología de diagnóstico más avanzada del mercado. No solo reparamos vehículos; honramos el legado de cuidar lo que más te importa.</p>
     </div>
 </section>
 
+<!-- NUESTROS SERVICIOS -->
 <section id="servicios" class="services-section">
     <h2 class="section-title">Nuestros Servicios</h2>
     <div class="services-grid">
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80" alt="Motor de Alta Fidelidad">
-            <h3>Mecánica de Alta Fidelidad</h3>
-            <p>Reparación integral de motores y sistemas de transmisión con tecnología de punta.</p>
-            <a href="#contacto" class="card-link">Ver detalles</a>
+        
+        <div class="service-card" onclick="window.location.href='#contacto'">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Mantenimiento de motor">
+            <h3>Mantenimiento Integral</h3>
+            <p>Afinación mayor, cambio de fluidos y filtros bajo especificaciones de equipo original para preservar el rendimiento y vida útil de tu motor.</p>
+            <a href="#contacto" class="card-link">Ver detalles →</a>
         </div>
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" alt="Sistemas de Frenado">
-            <h3>Sistemas de Frenado</h3>
-            <p>Inspección y mantenimiento preventivo para garantizar la máxima seguridad en cada trayecto.</p>
-            <a href="#contacto" class="card-link">Ver detalles</a>
+        
+        <div class="service-card" onclick="window.location.href='#contacto'">
+            <img src="https://images.unsplash.com/photo-1606577924006-27d39b132ae2?auto=format&fit=crop&w=800&q=80" alt="Disco de freno de precisión">
+            <h3>Frenos y Seguridad</h3>
+            <p>Diagnóstico, rectificación y sustitución de balatas, discos y componentes del sistema ABS para garantizar una respuesta de frenado milimétrica.</p>
+            <a href="#contacto" class="card-link">Ver detalles →</a>
         </div>
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=800&q=80" alt="Transmisión y Suspensión">
-            <h3>Transmisión y Suspensión</h3>
-            <p>Reparación y ajuste de sistemas de suspensión y transmisión para una conducción fluida.</p>
-            <a href="#contacto" class="card-link">Ver detalles</a>
+        
+        <div class="service-card" onclick="window.location.href='#contacto'">
+            <img src="https://images.unsplash.com/photo-1504221507732-5246c2459501?auto=format&fit=crop&w=800&q=80" alt="Diagnóstico electrónico por escáner">
+            <h3>Diagnóstico por Escáner</h3>
+            <p>Lectura de códigos de error en tiempo real para identificar fallas eléctricas, de motor o transmisión, optimizando tiempo y presupuesto.</p>
+            <a href="#contacto" class="card-link">Ver detalles →</a>
         </div>
+        
     </div>
 </section>
 
+<!-- TESTIMONIOS -->
 <section class="reviews-section">
     <h2>Opiniones de Clientes</h2>
-    <div class="reviews-grid">
-        <div class="review-item">
-            <div class="review-icon">“</div>
-            <p class="review-text">La calidad de los trabajos es impecable. El taller se ha convertido en mi confianza absoluta para cualquier reparación.</p>
-            <p class="review-author">Carlos M., Cliente Fiel</p>
+    
+    <div class="reviews-wrapper">
+        <button class="slider-btn" id="prev-review" aria-label="Opinión anterior">❮</button>
+        
+        <div class="reviews-slider" id="reviews-slider">
+            <div class="review-item">
+                <p class="review-text">"La calidad de los trabajos es impecable. El taller se ha convertido en mi espacio de absoluta confianza para cualquier reparación."</p>
+                <span class="review-author">Carlos M., Cliente Fiel</span>
+            </div>
+            
+            <div class="review-item">
+                <p class="review-text">"Atención técnica impecable. El equipo es sumamente profesional y entregan resultados de calidad que de verdad garantizan la seguridad."</p>
+                <span class="review-author">Elena R., Propietaria</span>
+            </div>
+            
+            <div class="review-item">
+                <p class="review-text">"Un servicio rápido, eficiente y sobre todo transparente. Da gusto encontrar un taller que entiende perfectamente lo que un conductor necesita."</p>
+                <span class="review-author">Javier L., Cliente Satisfecho</span>
+            </div>
+
+            <div class="review-item">
+                <p class="review-text">"Espectacular atención al detalle. Me explicaron el diagnóstico paso a paso antes de tocar el auto. Honestidad pura."</p>
+                <span class="review-author">Sofía T., Conductora</span>
+            </div>
         </div>
-        <div class="review-item">
-            <div class="review-icon">“</div>
-            <p class="review-text">Atención técnica impecable. El equipo es profesional y entrega resultados de calidad que garantizan la seguridad de mi vehículo.</p>
-            <p class="review-author">Elena R., Propietaria</p>
-        </div>
-        <div class="review-item">
-            <div class="review-icon">“</div>
-            <p class="review-text">Un servicio eficiente y transparente. El taller entiende perfectamente las necesidades de un conductor moderno y exigente.</p>
-            <p class="review-author">Javier L., Cliente</p>
-        </div>
+        
+        <button class="slider-btn" id="next-review" aria-label="Siguiente opinión">❯</button>
     </div>
 </section>
 
+<!-- CONTACTO CON REDIRECCIÓN A WHATSAPP -->
 <section id="contacto" class="contact-section">
     <div class="contact-info">
         <h2>Contacto</h2>
         <p>Estamos listos para resolver cualquier consulta técnica o asistencia mecánica.</p>
-        
         <div class="info-group">
             <h3>Ubicación</h3>
             <p>Polígono Industrial San Luis, Av. Industrial 1234, Ciudad de México</p>
@@ -544,51 +604,109 @@ body {
             <h3>Email</h3>
             <p>taller@autoreparacion.pro</p>
         </div>
-        <div class="info-group">
-            <h3>Horario</h3>
-            <p>Lunes a Viernes: 08:00 - 18:00<br>Sábados: 09:00 - 14:00</p>
-        </div>
     </div>
     
     <div class="contact-form">
         <div class="form-group">
-            <input type="text" placeholder="Tu Nombre">
+            <input type="text" id="form-name" placeholder="Tu Nombre" required>
         </div>
         <div class="form-group">
-            <input type="email" placeholder="Tu Correo Electrónico">
+            <input type="email" id="form-email" placeholder="Tu Correo Electrónico" required>
         </div>
         <div class="form-group">
-            <textarea rows="5" placeholder="¿En qué podemos ayudarte? (Fallas, cotización, marca de auto...)"></textarea>
+            <textarea id="form-message" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
         </div>
-        <button class="form-button">Enviar Mensaje</button>
+        <button class="form-button" onclick="enviarWhatsApp()">Enviar Mensaje</button>
     </div>
 </section>
 
+<!-- FOOTER CON REDES SOCIALES ORIGINALES -->
 <footer class="footer">
     <div class="footer-top">
         <div class="footer-logo">
-            <h2>AUTOREPARACIÓN</h2>
+            <h2>Auto<span>Reparación</span></h2>
+            <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px; max-width: 300px;">Precisión técnica y honestidad para mantenerte siempre seguro en la carretera.</p>
         </div>
-        <div class="footer-links">
-            <h3 class="footer-title">Contacto</h3>
-            <p style="color: var(--text-gray);">taller@autoreparacion.pro</p>
-            <p style="color: var(--text-gray); margin-top: 5px;">Polígono Industrial San Luis</p>
-        </div>
+        
         <div class="footer-links">
             <h3 class="footer-title">Síguenos</h3>
-            <div class="footer-socials">
-                <a href="#">FB</a>
-                <a href="#">IG</a>
-                <a href="#">YT</a>
-                <a href="#">X</a>
+            <div class="social-links">
+                <!-- Solo reemplaza el "#" con el enlace real a tus perfiles -->
+                <a href="#" class="social-icon facebook" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon instagram" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon tiktok" target="_blank" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="#" class="social-icon youtube" target="_blank" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <p>© 2026 AutoReparación. Todos los derechos reservados.</p>
-        <a href="#" style="color: var(--text-gray); text-decoration: none;">Política de privacidad</a>
     </div>
 </footer>
+
+<!-- CONTROL INTERACTIVO JAVASCRIPT -->
+<script>
+// 1. Menú Hamburguesa para móviles
+const menuToggle = document.getElementById('mobile-menu');
+const navList = document.getElementById('nav-list');
+const navLinks = document.querySelectorAll('.nav-link');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    navList.classList.toggle('active');
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.classList.remove('open');
+        navList.classList.remove('active');
+    });
+});
+
+// 2. Carrusel Horizontal de Opiniones
+const slider = document.getElementById('reviews-slider');
+const btnPrev = document.getElementById('prev-review');
+const btnNext = document.getElementById('next-review');
+
+btnNext.addEventListener('click', () => {
+    const cardWidth = slider.querySelector('.review-item').offsetWidth + 30;
+    slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+});
+
+btnPrev.addEventListener('click', () => {
+    const cardWidth = slider.querySelector('.review-item').offsetWidth + 30;
+    slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+});
+
+// 3. Función de envío a WhatsApp
+function enviarWhatsApp() {
+    const nombre = document.getElementById('form-name').value.trim();
+    const email = document.getElementById('form-email').value.trim();
+    const mensaje = document.getElementById('form-message').value.trim();
+    
+    if (nombre === "" || email === "" || mensaje === "") {
+        alert("Por favor, rellena todos los campos antes de enviar.");
+        return;
+    }
+    
+    const telefono = "526645485559";
+    const textoMensaje = `*NUEVA SOLICITUD DE COTIZACIÓN*%0A%0A` +
+                         `*Nombre:* ${nombre}%0A` +
+                         `*Correo:* ${email}%0A` +
+                         `*Mensaje:* ${mensaje}`;
+    
+    const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${textoMensaje}`;
+    window.open(urlWhatsApp, '_blank');
+}
+</script>
 
 </body>
 </html>
