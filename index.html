@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght=700;900&family=Plus+Jakarta+Sans:wght=400;500;700&display=swap" rel="stylesheet">
 
-<!-- Iconos Originales de Redes Sociales (Font Awesome) -->
+<!-- Iconos de Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -29,9 +29,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body { background-color: var(--bg-dark); color: var(--text-white); font-family: var(--font-body); overflow-x: hidden; }
 
-/* ========================================================
-   BARRA DE NAVEGACIÓN RECONFIGURADA Y RESPONSIVA
-   ======================================================== */
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
@@ -53,7 +51,6 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     color: var(--text-white);
     text-decoration: none;
 }
-
 .nav-logo span { color: var(--text-gray); font-weight: 400; }
 
 .nav-menu {
@@ -70,10 +67,9 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     font-size: 0.95rem;
     transition: color 0.3s;
 }
-
 .nav-link:hover { color: var(--accent-red); }
 
-/* MENÚ HAMBURGUESA (Oculto en Escritorio) */
+/* MENÚ HAMBURGUESA */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -83,22 +79,17 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     cursor: pointer;
     z-index: 1100;
 }
-
 .menu-toggle span {
     width: 30px;
     height: 3px;
     background-color: var(--text-white);
     transition: all 0.3s ease;
 }
-
-/* Animación de la Hamburguesa a una "X" */
 .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
 .menu-toggle.open span:nth-child(2) { opacity: 0; }
 .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
 
-/* ========================================================
-   INICIO (HERO) CON ESLOGAN IMPACTANTE
-   ======================================================== */
+/* HERO SECTION */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -126,7 +117,15 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     letter-spacing: -1px;
 }
 
-.btn-quote {
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-main {
     background-color: var(--accent-red);
     color: var(--text-white);
     text-decoration: none;
@@ -137,15 +136,23 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     padding: 20px 35px;
     border-radius: 6px;
     transition: all 0.3s ease;
-    max-width: 280px;
     text-align: center;
     box-shadow: 0 10px 25px rgba(242, 78, 78, 0.2);
 }
-
-.btn-quote:hover {
+.btn-main:hover {
     background-color: #df3e3e;
     transform: translateY(-2px);
     box-shadow: 0 15px 30px rgba(242, 78, 78, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--text-white);
+}
+.btn-secondary:hover {
+    background-color: var(--text-white);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
 }
 
 .hero-banner-img {
@@ -155,18 +162,14 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     margin-top: 60px;
 }
 
-/* ========================================================
-   NOSOTROS: HISTORIA Y VALOR (COCHE CLÁSICO)
-   ======================================================== */
+/* SOBRE NOSOTROS */
 .split-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; align-items: center; }
 .split-image { width: 100%; height: 100%; object-fit: cover; }
 .split-content { padding: 80px 10%; background-color: #0d1524; height: 100%; display: flex; flex-direction: column; justify-content: center; }
 .split-content h2 { font-family: var(--font-heading); font-size: 3rem; text-transform: uppercase; margin-bottom: 25px; line-height: 1.1; }
 .split-content p { color: var(--text-gray); font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; }
 
-/* ========================================================
-   SECCIÓN SERVICIOS: IMÁGENES PRECISAS Y EFECTO ZOOM
-   ======================================================== */
+/* SERVICIOS */
 .services-section { padding: 100px 6%; }
 .section-title { font-family: var(--font-heading); font-size: 3.5rem; text-transform: uppercase; margin-bottom: 60px; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
@@ -176,38 +179,28 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 6px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
     cursor: pointer;
 }
-
 .service-card:hover {
     transform: translateY(-8px);
     border-color: var(--accent-red);
     box-shadow: 0 15px 35px rgba(242, 78, 78, 0.1);
 }
-
 .service-card img {
     width: 100%;
     height: 240px;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 25px;
-    transition: transform 0.5s ease;
 }
-
-.service-card:hover img { transform: scale(1.03); }
-
 .service-card h3 {
     font-family: var(--font-heading);
     font-size: 1.4rem;
     margin-bottom: 15px;
     text-transform: uppercase;
-    transition: color 0.3s ease;
 }
-
-.service-card:hover h3 { color: var(--accent-red); }
 .service-card p { color: var(--text-gray); font-size: 1rem; line-height: 1.6; margin-bottom: 25px; }
-
 .service-card .card-link {
     color: var(--text-white);
     text-decoration: none;
@@ -215,118 +208,23 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
-    transition: color 0.3s ease, padding-left 0.3s ease;
-    display: inline-block;
 }
+.service-card:hover .card-link { color: var(--accent-red); }
 
-.service-card:hover .card-link { color: var(--accent-red); padding-left: 5px; }
-
-/* ========================================================
-   SECCIÓN OPINIONES: CAROUSEL HORIZONTAL
-   ======================================================== */
-.reviews-section {
-    background-color: #0d1524; 
-    padding: 100px 6%;
-    text-align: center;
-    position: relative;
-}
-
-.reviews-section h2 {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    text-transform: uppercase;
-    margin-bottom: 50px;
-    letter-spacing: 1px;
-}
-
-.reviews-wrapper {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.reviews-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    gap: 30px;
-    padding: 20px 10px;
-    width: 100%;
-    scrollbar-width: none; 
-}
-
+/* OPINIONES */
+.reviews-section { background-color: #0d1524; padding: 100px 6%; text-align: center; }
+.reviews-section h2 { font-family: var(--font-heading); font-size: 3rem; text-transform: uppercase; margin-bottom: 50px; }
+.reviews-wrapper { position: relative; max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 20px; }
+.reviews-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; gap: 30px; padding: 20px 10px; width: 100%; scrollbar-width: none; }
 .reviews-slider::-webkit-scrollbar { display: none; }
-
-.review-item {
-    flex: 0 0 100%; 
-    scroll-snap-align: center;
-    background-color: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px 30px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 250px;
-    text-align: left;
-    transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.review-item:hover { border-color: var(--accent-red); transform: translateY(-3px); }
-
-.review-text {
-    font-family: var(--font-body);
-    font-size: 1.15rem; 
-    line-height: 1.8; 
-    color: #e5e7eb; 
-    margin-bottom: 25px;
-    font-weight: 400;
-}
-
-.review-author {
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-red);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
+.review-item { flex: 0 0 100%; scroll-snap-align: center; background-color: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 30px; border-radius: 8px; min-height: 250px; text-align: left; }
+.review-text { font-size: 1.15rem; line-height: 1.8; color: #e5e7eb; margin-bottom: 25px; }
+.review-author { font-family: var(--font-heading); font-size: 0.95rem; text-transform: uppercase; color: var(--accent-red); display: flex; align-items: center; gap: 10px; }
 .review-author::before { content: "—"; color: var(--text-gray); }
+.slider-btn { background-color: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-white); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; transition: all 0.3s ease; z-index: 10; }
+.slider-btn:hover { background-color: var(--accent-red); border-color: var(--accent-red); }
 
-.slider-btn {
-    background-color: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-white);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    user-select: none;
-    z-index: 10;
-}
-
-.slider-btn:hover {
-    background-color: var(--accent-red);
-    border-color: var(--accent-red);
-    box-shadow: 0 0 15px rgba(242, 78, 78, 0.3);
-}
-
-/* ========================================================
-   SECCIÓN CONTACTO Y RECUADROS ANIMADOS SUTILES
-   ======================================================== */
+/* CONTACTO */
 .contact-section { padding: 100px 6%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 .contact-info h2 { font-family: var(--font-heading); font-size: 3.5rem; text-transform: uppercase; margin-bottom: 20px; }
 .contact-info p { color: var(--text-gray); margin-bottom: 40px; }
@@ -334,163 +232,43 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
 .info-group h3 { font-family: var(--font-heading); font-size: 1.6rem; text-transform: uppercase; margin-bottom: 10px; }
 .info-group p { color: var(--text-gray); }
 
-.contact-form { 
-    background-color: var(--bg-card); 
-    padding: 40px; 
-    border-radius: 6px; 
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
+.contact-form { background-color: var(--bg-card); padding: 40px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.05); }
 .form-group { margin-bottom: 20px; }
+.form-group input, .form-group textarea { width: 100%; padding: 15px; background-color: var(--bg-dark); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-white); border-radius: 4px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s ease; }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--accent-red); background-color: #0f172a; transform: translateX(4px); }
+.form-button { width: 100%; background-color: var(--accent-red); color: white; border: none; padding: 15px; text-transform: uppercase; font-weight: 700; cursor: pointer; border-radius: 4px; font-family: var(--font-heading); letter-spacing: 1px; transition: all 0.3s ease; }
+.form-button:hover { background-color: #df3e3e; transform: translateY(-2px); }
 
-/* Estilos y transiciones fluidas para inputs del formulario */
-.form-group input, .form-group textarea { 
-    width: 100%; 
-    padding: 15px; 
-    background-color: var(--bg-dark); 
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-    color: var(--text-white); 
-    border-radius: 4px; 
-    font-family: var(--font-body);
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-/* Animación cuando el usuario da clic en un recuadro */
-.form-group input:focus, .form-group textarea:focus { 
-    border-color: var(--accent-red); 
-    background-color: #0f172a; 
-    box-shadow: 0 0 12px rgba(242, 78, 78, 0.15); 
-    transform: translateX(4px); 
-}
-
-.form-button { 
-    width: 100%; 
-    background-color: var(--accent-red); 
-    color: white; 
-    border: none; 
-    padding: 15px; 
-    text-transform: uppercase; 
-    font-weight: 700; 
-    cursor: pointer; 
-    border-radius: 4px; 
-    font-family: var(--font-heading);
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.form-button:hover {
-    background-color: #df3e3e;
-    box-shadow: 0 5px 20px rgba(242, 78, 78, 0.4);
-    transform: translateY(-2px);
-}
-
-.form-button:active { transform: translateY(0); }
-
-/* ========================================================
-   PIE DE PÁGINA (FOOTER) Y REDES SOCIALES TOTALMENTE CENTRADAS
-   ======================================================== */
+/* FOOTER */
 .footer { background-color: #070b12; padding: 60px 6% 30px 6%; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 60px; }
 .footer-logo h2 { font-family: var(--font-heading); font-size: 2rem; }
 .footer-title { color: var(--accent-red); font-family: var(--font-heading); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 15px; }
-.footer-links a { color: var(--text-gray); text-decoration: none; display: block; margin-bottom: 10px; }
+.social-links { display: flex; gap: 15px; margin-top: 10px; }
 
-/* Contenedor de iconos sociales */
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-}
+.social-icon { display: block; width: 44px; height: 44px; line-height: 42px; text-align: center; border-radius: 50%; background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-gray); font-size: 1.15rem; text-decoration: none; transition: all 0.3s ease; }
+.social-icon i { display: inline-block; vertical-align: middle; }
 
-/* Estilo individual corregido para centrado perfecto sin flex/grid complejos */
-.social-icon {
-    display: block;
-    width: 44px;
-    height: 44px;
-    line-height: 42px; /* Alineación vertical milimétrica (resta el borde) */
-    text-align: center; /* Alineación horizontal milimétrica */
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--text-gray);
-    font-size: 1.15rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-icon i {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/* Colores Oficiales Originales al hacer Hover */
-.social-icon.facebook:hover {
-    background-color: #1877F2;
-    border-color: #1877F2;
-    color: #fff;
-    box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
-}
-
-.social-icon.instagram:hover {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    border-color: transparent;
-    color: #fff;
-    box-shadow: 0 0 15px rgba(214, 36, 159, 0.4);
-}
-
-.social-icon.tiktok:hover {
-    background-color: #000000;
-    border-color: #01F2FF; 
-    color: #fff;
-    text-shadow: 1px 1px #FE2C55, -1px -1px #01F2FF; 
-    box-shadow: 0 0 15px rgba(1, 242, 255, 0.4);
-}
-
-.social-icon.youtube:hover {
-    background-color: #FF0000;
-    border-color: #FF0000;
-    color: #fff;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-}
-
+.social-icon.facebook:hover { background-color: #1877F2; border-color: #1877F2; color: #fff; }
+.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #fff; }
+.social-icon.tiktok:hover { background-color: #000000; border-color: #01F2FF; color: #fff; }
+.social-icon.youtube:hover { background-color: #FF0000; border-color: #FF0000; color: #fff; }
 .footer-bottom { display: flex; justify-content: space-between; color: var(--text-gray); font-size: 0.9rem; flex-wrap: wrap; gap: 20px; }
 
-/* ========================================================
-   DISEÑO RESPONSIVO (PANTALLAS MEDIANAS Y MÓVILES)
-   ======================================================== */
+/* RESPONSIVO */
 @media (max-width: 968px) {
     .menu-toggle { display: flex; } 
-    
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%; 
-        width: 75%;
-        height: 100vh;
-        background-color: #0d1524;
-        flex-direction: column;
-        justify-content: center;
-        gap: 40px;
-        transition: right 0.4s ease;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-    }
-    
+    .nav-menu { position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; background-color: #0d1524; flex-direction: column; justify-content: center; gap: 40px; transition: right 0.4s ease; box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
     .nav-menu.active { right: 0; } 
     .nav-link { font-size: 1.3rem; } 
-    
     .split-section, .contact-section { grid-template-columns: 1fr; }
     .split-content { padding: 60px 6%; }
     .hero-main { flex-direction: column; align-items: flex-start; gap: 30px; }
-    .btn-quote { max-width: 100%; width: 100%; }
+    .hero-buttons { flex-direction: column; }
+    .btn-main { width: 100%; max-width: 100%; }
     .hero-banner-img { height: 320px; }
 }
-
-@media (min-width: 768px) {
-    .review-item { flex: 0 0 calc(50% - 15px); } 
-}
+@media (min-width: 768px) { .review-item { flex: 0 0 calc(50% - 15px); } }
 </style>
 </head>
 <body>
@@ -498,18 +276,14 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
 <!-- BARRA DE NAVEGACIÓN -->
 <nav class="navbar">
     <a href="#inicio" class="nav-logo">🔧 Auto<span>Reparación</span></a>
-    
     <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
     </button>
-    
     <ul class="nav-menu" id="nav-list">
         <li><a href="#inicio" class="nav-link">Inicio</a></li>
         <li><a href="#servicios" class="nav-link">Servicios</a></li>
         <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        <li><a href="#contacto" class="nav-link">Cotizar</a></li>
     </ul>
 </nav>
 
@@ -517,20 +291,24 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
 <header id="inicio" class="hero">
     <div class="hero-main">
         <h1 class="hero-title">Ingeniería de Precisión para tu Tranquilidad</h1>
-        <a href="#contacto" class="btn-quote">Solicitar Cotización</a>
+        <div class="hero-buttons">
+            <a href="#contacto" class="btn-main">Pedir Cotización (WhatsApp)</a>
+            <!-- Aquí pones el link de tu Google Calendar reemplazando la URL de abajo -->
+            <a href="https://calendar.google.com" target="_blank" class="btn-main btn-secondary">Agendar Cita en Calendario</a>
+        </div>
     </div>
-    <img src="https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1800&q=80" alt="Diagnóstico Automotriz Avanzado" class="hero-banner-img">
+    <img src="https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1800&q=80" alt="Diagnóstico Automotriz" class="hero-banner-img">
 </header>
 
-<!-- NOSOTROS (HISTORIA Y VALOR) -->
+<!-- NOSOTROS -->
 <section id="nosotros" class="split-section">
-    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80" alt="Restauración de Coche Clásico" class="split-image">
+    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80" alt="Restauración" class="split-image">
     <div class="split-content">
         <span style="color: var(--accent-red); font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block;">Nuestra Historia</span>
         <h2>Un Legado de Confianza</h2>
-        <p>Todo comenzó en un pequeño garaje con el suelo manchado de aceite y las herramientas heredadas de un abuelo. Ahí, un padre le enseñó a su hijo que el motor de un automóvil no es solo un conjunto de piezas metálicas; es el guardián de los viajes familiares, de los regresos a casa y de las promesas en la carretera.</p>
-        <p style="font-style: italic; border-left: 2px solid var(--accent-red); padding-left: 15px; color: var(--text-white); margin: 15px 0;">"Hijo, cualquiera puede cambiar una pieza rota, pero nosotros devolvemos la tranquilidad. Quien nos deja sus llaves, nos confía la seguridad de su familia."</p>
-        <p>Hoy, aquel niño es el ingeniero que lidera nuestro taller moderno. Combinamos esa misma filosofía de honestidad y amor por los automóviles que aprendimos de niños, con la tecnología de diagnóstico más avanzada del mercado. No solo reparamos vehículos; honramos el legado de cuidar lo que más te importa.</p>
+        <p>Todo comenzó en un pequeño garaje con el suelo manchado de aceite y las herramientas heredadas de un abuelo. Ahí aprendimos que un motor no es solo metal; es el guardián de tus viajes familiares.</p>
+        <p style="font-style: italic; border-left: 2px solid var(--accent-red); padding-left: 15px; color: var(--text-white); margin: 15px 0;">"Cualquiera puede cambiar una pieza rota, pero nosotros devolvemos la tranquilidad."</p>
+        <p>Hoy combinamos esa honestidad tradicional con la tecnología de diagnóstico por computadora más avanzada del mercado.</p>
     </div>
 </section>
 
@@ -538,65 +316,51 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
 <section id="servicios" class="services-section">
     <h2 class="section-title">Nuestros Servicios</h2>
     <div class="services-grid">
-        
         <div class="service-card" onclick="window.location.href='#contacto'">
-            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Mantenimiento de motor">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Mantenimiento">
             <h3>Mantenimiento Integral</h3>
-            <p>Afinación mayor, cambio de fluidos y filtros bajo especificaciones de equipo original para preservar el rendimiento y vida útil de tu motor.</p>
-            <a href="#contacto" class="card-link">Ver detalles →</a>
+            <p>Afinación mayor, cambio de fluidos y filtros bajo especificaciones de equipo original.</p>
+            <a href="#contacto" class="card-link">Cotizar por WhatsApp →</a>
         </div>
-        
         <div class="service-card" onclick="window.location.href='#contacto'">
-            <img src="https://images.unsplash.com/photo-1606577924006-27d39b132ae2?auto=format&fit=crop&w=800&q=80" alt="Disco de freno de precisión">
+            <img src="https://images.unsplash.com/photo-1606577924006-27d39b132ae2?auto=format&fit=crop&w=800&q=80" alt="Frenos">
             <h3>Frenos y Seguridad</h3>
-            <p>Diagnóstico, rectificación y sustitución de balatas, discos y componentes del sistema ABS para garantizar una respuesta de frenado milimétrica.</p>
-            <a href="#contacto" class="card-link">Ver detalles →</a>
+            <p>Diagnóstico, rectificación y sustitución de balatas y componentes del sistema ABS.</p>
+            <a href="#contacto" class="card-link">Cotizar por WhatsApp →</a>
         </div>
-        
         <div class="service-card" onclick="window.location.href='#contacto'">
-            <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=800&q=80" alt="Diagnóstico electrónico por escáner">
+            <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=800&q=80" alt="Escáner">
             <h3>Diagnóstico por Escáner</h3>
-            <p>Lectura de códigos de error en tiempo real para identificar fallas eléctricas, de motor o transmisión, optimizando tiempo y presupuesto.</p>
-            <a href="#contacto" class="card-link">Ver detalles →</a>
+            <p>Lectura de códigos de error en tiempo real para identificar fallas eléctricas de inmediato.</p>
+            <a href="#contacto" class="card-link">Cotizar por WhatsApp →</a>
         </div>
-        
     </div>
 </section>
 
 <!-- TESTIMONIOS -->
 <section class="reviews-section">
     <h2>Opiniones de Clientes</h2>
-    
     <div class="reviews-wrapper">
-        <button class="slider-btn" id="prev-review" aria-label="Opinión anterior">❮</button>
-        
+        <button class="slider-btn" id="prev-review">❮</button>
         <div class="reviews-slider" id="reviews-slider">
             <div class="review-item">
-                <p class="review-text">"La calidad de los trabajos es impecable. El taller se ha convertido en mi espacio de absoluta confianza para cualquier reparación."</p>
+                <p class="review-text">"La calidad de los trabajos es impecable. El taller se ha convertido en mi espacio de absoluta confianza."</p>
                 <span class="review-author">Carlos M., Cliente Fiel</span>
             </div>
-            
             <div class="review-item">
-                <p class="review-text">"Atención técnica impecable. El equipo es sumamente profesional y entregan resultados de calidad que de verdad garantizan la seguridad."</p>
+                <p class="review-text">"Atención técnica excelente. El equipo es sumamente profesional y transparente con los precios."</p>
                 <span class="review-author">Elena R., Propietaria</span>
             </div>
-            
             <div class="review-item">
-                <p class="review-text">"Un servicio rápido, eficiente y sobre todo transparente. Da gusto encontrar un taller que entiende perfectamente lo que un conductor necesita."</p>
+                <p class="review-text">"Un servicio rápido y honesto. Da gusto encontrar mecánicos que te explican todo con claridad."</p>
                 <span class="review-author">Javier L., Cliente Satisfecho</span>
             </div>
-
-            <div class="review-item">
-                <p class="review-text">"Espectacular atención al detalle. Me explicaron el diagnóstico paso a paso antes de tocar el auto. Honestidad pura."</p>
-                <span class="review-author">Sofía T., Conductora</span>
-            </div>
         </div>
-        
-        <button class="slider-btn" id="next-review" aria-label="Siguiente opinión">❯</button>
+        <button class="slider-btn" id="next-review">❯</button>
     </div>
 </section>
 
-<!-- CONTACTO CON REDIRECCIÓN A WHATSAPP -->
+<!-- CONTACTO -->
 <section id="contacto" class="contact-section">
     <div class="contact-info">
         <h2>Contacto</h2>
@@ -619,35 +383,26 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
             <input type="email" id="form-email" placeholder="Tu Correo Electrónico" required>
         </div>
         <div class="form-group">
-            <textarea id="form-message" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+            <textarea id="form-message" rows="5" placeholder="¿Qué falla presenta tu auto o qué servicio necesitas cotizar?" required></textarea>
         </div>
-        <button class="form-button" onclick="enviarWhatsApp()">Enviar Mensaje</button>
+        <button class="form-button" onclick="enviarWhatsApp()">Enviar a WhatsApp</button>
     </div>
 </section>
 
-<!-- FOOTER CON REDES SOCIALES CORREGIDAS Y PERFECTAMENTE CENTRADAS -->
+<!-- FOOTER -->
 <footer class="footer">
     <div class="footer-top">
         <div class="footer-logo">
             <h2>Auto<span>Reparación</span></h2>
             <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px; max-width: 300px;">Precisión técnica y honestidad para mantenerte siempre seguro en la carretera.</p>
         </div>
-        
         <div class="footer-links">
             <h3 class="footer-title">Síguenos</h3>
             <div class="social-links">
-                <a href="#" class="social-icon facebook" target="_blank" aria-label="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-icon instagram" target="_blank" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#" class="social-icon tiktok" target="_blank" aria-label="TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-                <a href="#" class="social-icon youtube" target="_blank" aria-label="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
+                <a href="#" class="social-icon facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="social-icon youtube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -656,61 +411,46 @@ body { background-color: var(--bg-dark); color: var(--text-white); font-family: 
     </div>
 </footer>
 
-<!-- CONTROL INTERACTIVO JAVASCRIPT -->
 <script>
-// 1. Menú Hamburguesa para móviles
+// Menú Hamburguesa
 const menuToggle = document.getElementById('mobile-menu');
 const navList = document.getElementById('nav-list');
-const navLinks = document.querySelectorAll('.nav-link');
-
 menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('open');
     navList.classList.toggle('active');
 });
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('open');
-        navList.classList.remove('active');
-    });
-});
-
-// 2. Carrusel Horizontal de Opiniones
+// Carrusel de Opiniones
 const slider = document.getElementById('reviews-slider');
-const btnPrev = document.getElementById('prev-review');
-const btnNext = document.getElementById('next-review');
-
-btnNext.addEventListener('click', () => {
+document.getElementById('next-review').addEventListener('click', () => {
     const cardWidth = slider.querySelector('.review-item').offsetWidth + 30;
     slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
 });
-
-btnPrev.addEventListener('click', () => {
+document.getElementById('prev-review').addEventListener('click', () => {
     const cardWidth = slider.querySelector('.review-item').offsetWidth + 30;
     slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
 });
 
-// 3. Función de envío a WhatsApp
+// Enviar Cotización por WhatsApp
 function enviarWhatsApp() {
     const nombre = document.getElementById('form-name').value.trim();
     const email = document.getElementById('form-email').value.trim();
     const mensaje = document.getElementById('form-message').value.trim();
     
     if (nombre === "" || email === "" || mensaje === "") {
-        alert("Por favor, rellena todos los campos antes de enviar.");
+        alert("Por favor, rellena todos los campos para generar tu cotización.");
         return;
     }
     
-    const telefono = "526645485559";
+    const telefono = "526645485559"; // Tu número de teléfono
     const textoMensaje = `*NUEVA SOLICITUD DE COTIZACIÓN*%0A%0A` +
                          `*Nombre:* ${nombre}%0A` +
                          `*Correo:* ${email}%0A` +
-                         `*Mensaje:* ${mensaje}`;
+                         `*Detalles del Auto/Falla:* ${mensaje}`;
     
     const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${textoMensaje}`;
     window.open(urlWhatsApp, '_blank');
 }
 </script>
-
 </body>
 </html>
